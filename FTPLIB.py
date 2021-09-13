@@ -10,7 +10,7 @@ from ftplib import FTP
 
 def ftpsend(filename):
     #domain name or server ip:
-    ftp = FTP('F12AENS')
+    ftp = FTP('10.10.8.18')
     ftp.login(user='ens_ftp', passwd = 'ftpens')
     ftp.cwd('ENS_FILE/dat')
     with open(filename,'rb') as f:

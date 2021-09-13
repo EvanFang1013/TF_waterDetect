@@ -33,15 +33,33 @@ def detect_water(DetectPIN,message):
 		if not GPIO.input(DetectPIN):
 			if not pressed:
 				if (time.time()-timetemp)>=3:
+					alarm_time = time.time()
 					logging.info("[InFo] Detect water leak : GPIO %s"%DetectPIN )
+					print("[InFo] Detect water leak : GPIO %s"%DetectPIN)
+					pressed = True	
 					try:
 						ftpsend(message)
 					except:
+						pass
 						logging.warning("[Warn] ENS FTP server connect fail" )
-					pressed = True	
+					
+			if pressed:
+				if (time.time()- alarm_time)>=600:
+					alarm_time = time.time()
+
+					print("[InFo] Detect water leak : GPIO %s"%DetectPIN)
+					try:
+						ftpsend(message)
+					except:
+						pass
+						logging.warning("[Warn] ENS FTP server connect fail" )
+
+			
+				
 		# DR (or released)
 		else:
 			timetemp = time.time()
+			alarm_cnt = 0
 			pressed = False
 		time.sleep(1)
 
@@ -52,7 +70,7 @@ if __name__ == '__main__':
 		
 	threading.Thread(target = detect_water ,args = (Machine1_PIN,Machine1_ENS)).start()
 	threading.Thread(target = detect_water ,args = (Machine2_PIN,Machine2_ENS)).start()
-	threading.Thread(target = detect_water ,args = (Machine3_PIN,Machine3_ENS)).start()
-	threading.Thread(target = detect_water ,args = (Machine4_PIN,Machine4_ENS)).start()
+	# ~ threading.Thread(target = detect_water ,args = (Machine3_PIN,Machine3_ENS)).start()
+	# ~ threading.Thread(target = detect_water ,args = (Machine4_PIN,Machine4_ENS)).start()
 
 

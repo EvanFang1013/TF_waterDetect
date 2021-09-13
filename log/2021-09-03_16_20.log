@@ -1,6 +1,0 @@
-2021-09-03 16:20:39,555 root         INFO     [InFo] Detect water leak : GPIO 12
-2021-09-03 16:20:48,565 root         INFO     [InFo] Detect water leak : GPIO 16
-2021-09-03 16:22:50,461 root         WARNING  [Warn] ENS FTP server connect fail
-2021-09-03 16:23:00,701 root         WARNING  [Warn] ENS FTP server connect fail
-2021-09-03 16:23:59,764 root         INFO     [InFo] Detect water leak : GPIO 16
-2021-09-03 16:26:10,141 root         WARNING  [Warn] ENS FTP server connect fail

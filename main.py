@@ -16,10 +16,10 @@ logging.basicConfig(level=logging.INFO,
 
 #Define ENS message file
 #define GPIO pinout
-Machine1_PIN = 12;Machine1_ENS = './Event/WaterLeakEvent_M1.txt'
-Machine2_PIN = 16;Machine2_ENS = './Event/WaterLeakEvent_M2.txt'
-Machine3_PIN = 20;Machine3_ENS = './Event/WaterLeakEvent_M3.txt'
-Machine4_PIN = 21;Machine4_ENS = './Event/WaterLeakEvent_M4.txt'
+Machine1_PIN = 12;Machine1_ENS = 'WaterLeakEvent_M1.txt'
+Machine2_PIN = 16;Machine2_ENS = 'WaterLeakEvent_M2.txt'
+Machine3_PIN = 20;Machine3_ENS = 'WaterLeakEvent_M3.txt'
+Machine4_PIN = 21;Machine4_ENS = 'WaterLeakEvent_M4.txt'
 
 GPIO.setmode(GPIO.BCM)
 
